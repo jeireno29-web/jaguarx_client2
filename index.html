@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JaguarX Client</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><img src="../assets/jaguarx-logo.png"><div><b>JAGUAR<span>X</span></b><small>CLIENT</small></div></div>
+    <div class="nav-label">MENÚ PRINCIPAL</div>
+    <button class="nav active" data-page="home">⌂ <span>Inicio</span></button>
+    <button class="nav" data-page="profiles">▣ <span>Perfiles</span></button>
+    <button class="nav" data-page="mods">▦ <span>Mods</span></button>
+    <button class="nav" data-page="performance">⚡ <span>Rendimiento</span></button>
+    <button class="nav" data-page="customize">✦ <span>Personalización</span></button>
+    <div class="sidebar-bottom"><div class="status-dot"></div><span>JaguarX Client · Local</span></div>
+  </aside>
+  <main class="main">
+    <header><div><div class="eyebrow">MINECRAFT JAVA EDITION</div><h1 id="page-title">Inicio</h1></div><div class="top-right"><span class="pill">● Launcher companion</span></div></header>
+    <section id="home" class="page show">
+      <div class="hero">
+        <div class="hero-copy"><div class="eyebrow blue">DOMINA TU PARTIDA</div><h2>Juega a tu manera.<br><span>Rinde al máximo.</span></h2>
+        <p>Tu espacio para organizar perfiles, mods y ajustes de JaguarX Client.</p>
+        <div class="actions"><button class="secondary" id="login-microsoft">Iniciar sesión Microsoft</button><button class="primary big" id="play">▶ &nbsp; ABRIR MINECRAFT</button></div>
+        <label class="muted" for="ms-client-id">ID de aplicación Microsoft (se configura una vez)</label><input id="ms-client-id" placeholder="Pega aquí el Client ID de tu aplicación">
+        <small class="muted" id="launch-note">El inicio directo del juego todavía requiere configurar la autenticación Microsoft.</small></div>
+        <img class="hero-logo" src="../assets/jaguarx-logo.png">
+      </div>
+      <div class="grid three">
+        <div class="panel stat"><small>PERFIL ACTIVO</small><strong id="home-profile">Principal</strong><span id="home-version">Minecraft 1.20.6 · Vanilla</span></div>
+        <div class="panel stat"><small>MODS INSTALADOS</small><strong id="home-mods">0</strong><span>En el perfil seleccionado</span></div>
+        <div class="panel stat"><small>MEMORIA ASIGNADA</small><strong id="home-ram">4 GB</strong><span>Preferencia del perfil</span></div>
+      </div>
+      <div class="panel notice"><b>Primeros pasos</b><p>Selecciona un perfil, añade mods .jar compatibles con su versión y abre la carpeta para administrar tus archivos.</p></div>
+    </section>
+
+    <section id="profiles" class="page">
+      <div class="section-head"><div><h2>Tus perfiles</h2><p>Guarda distintas configuraciones de Minecraft.</p></div><button class="primary" id="new-profile">＋ Crear perfil</button></div>
+      <div id="profile-list" class="profile-list"></div>
+      <div class="panel form-panel" id="profile-form" hidden>
+        <h3>Nuevo perfil</h3><div class="form-grid">
+          <label>Nombre<input id="p-name" maxlength="32" placeholder="Ej. BoxPvP"></label>
+          <label>Versión<input id="p-version" value="1.20.6" placeholder="Ej. 1.20.6"></label>
+          <label>Mod loader<select id="p-loader"><option>Vanilla</option><option>Fabric</option><option>Forge</option><option>NeoForge</option></select></label>
+          <label>RAM (GB)<input id="p-ram" type="number" min="2" max="16" value="4"></label>
+        </div><div class="actions"><button class="secondary" id="cancel-profile">Cancelar</button><button class="primary" id="save-profile">Guardar perfil</button></div>
+      </div>
+    </section>
+
+    <section id="mods" class="page">
+      <div class="section-head"><div><h2>Biblioteca de mods</h2><p>Administra archivos .jar del perfil activo.</p></div><button class="primary" id="add-mods">＋ Añadir mods .jar</button></div>
+      <div class="panel"><div class="toolbar"><b id="mods-for">Perfil: Principal</b><button class="secondary" id="open-mod-folder">Abrir carpeta de mods</button></div><div id="mods-list" class="mods-list"></div></div>
+      <p class="hint">Instala únicamente mods de fuentes confiables. El mod loader y la versión del mod deben coincidir con el perfil.</p>
+    </section>
+
+    <section id="performance" class="page">
+      <h2>Rendimiento</h2><p class="sub">Elige una preferencia para guardar junto a tu configuración.</p>
+      <div class="grid three performance-options">
+        <button class="panel option" data-performance="quality"><b>✧ Calidad</b><span>Prioriza calidad visual.</span></button>
+        <button class="panel option selected" data-performance="balanced"><b>◈ Equilibrado</b><span>Un punto medio para jugar.</span></button>
+        <button class="panel option" data-performance="fps"><b>⚡ FPS</b><span>Prioriza fluidez visual.</span></button>
+      </div>
+      <div class="panel"><h3>Consejos de rendimiento</h3><ul class="tips"><li>Asigna memoria suficiente, sin reservar toda la RAM del equipo.</li><li>Usa mods de optimización compatibles con tu versión y loader.</li><li>Reduce distancia de renderizado si experimentas tirones.</li></ul><p class="hint">Esta selección guarda tu preferencia; no modifica automáticamente los ajustes internos de Minecraft.</p></div>
+    </section>
+
+    <section id="customize" class="page">
+      <h2>Personalización</h2><p class="sub">Previsualiza tus opciones de cosméticos y HUD.</p>
+      <div class="grid two">
+        <div class="panel"><h3>Cosméticos</h3><label>Color de acento<input type="color" id="accent"></label><label class="spaced">Capa de vista previa<select id="cape"><option value="none">Ninguna</option><option value="blue">Azul JaguarX (vista previa)</option><option value="dark">Oscura (vista previa)</option></select></label><p class="hint">Los cosméticos se guardan como preferencias visuales locales. No se aplican a la cuenta o al personaje de Minecraft.</p></div>
+        <div class="panel"><h3>HUD personalizado</h3>
+          <label class="check"><input type="checkbox" id="hud-fps"> Mostrar FPS (vista previa)</label>
+          <label class="check"><input type="checkbox" id="hud-coords"> Mostrar coordenadas (vista previa)</label>
+          <label class="check"><input type="checkbox" id="hud-cps"> Mostrar CPS (vista previa)</label>
+          <label class="spaced">Escala <input type="range" id="hud-scale" min="70" max="130" value="100"></label>
+          <div class="hud-preview" id="hud-preview">JaguarX HUD <span id="hud-preview-details">FPS: 144</span></div>
+          <p class="hint">La vista previa no inyecta un HUD dentro del juego.</p>
+        </div>
+      </div>
+      <div class="actions"><button class="primary" id="save-custom">Guardar personalización</button></div>
+    </section>
+    <footer>JAGUARX CLIENT <span>Proyecto independiente · No afiliado con Mojang ni Microsoft</span></footer>
+  </main>
+</div>
+<div id="toast" class="toast"></div>
+<script src="renderer.js"></script>
+</body></html>

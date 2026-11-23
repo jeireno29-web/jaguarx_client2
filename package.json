@@ -1,0 +1,40 @@
+{
+  "name": "jaguarx-client",
+  "version": "1.0.0",
+  "description": "JaguarX Client - Minecraft Java launcher with Microsoft authentication and automatic game setup",
+  "main": "src/main.js",
+  "author": "JaguarX Client",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "com.jaguarx.client",
+    "productName": "JaguarX Client",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "dependencies": {
+    "minecraft-java-core": "^4.2.9"
+  }
+}
